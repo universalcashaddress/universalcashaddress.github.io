@@ -1,22 +1,22 @@
-# universalcashaddress.github.io
+# [universalcashaddress.github.io](https://universalcashaddress.github.io)
 configurable base58 bech32 translator
 
 built from: 
-https://github.com/cashaddress/cashaddress.github.io
-https://github.com/davidshimjs/qrcodejs
+- https://github.com/cashaddress/cashaddress.github.io
+- https://github.com/davidshimjs/qrcodejs
 
 relevant links are at the top
 configuration dropdown on the left(preset for bitcoincash)
 
 scroll down to find quick tests / suggestions
 or try an address from an explorer:
-https://blockdozer.com/insight/
-https://blockchain.info
-https://live.blockcypher.com/ltc/
-https://xrpcharts.ripple.com/#/graph/
+- https://blockdozer.com/insight/
+- https://blockchain.info
+- https://live.blockcypher.com/ltc/
+- https://xrpcharts.ripple.com/#/graph/
 
 remember to set the correct P2PKH & P2SH prefix for a given coin, also not all coins use the same base58 alphabet. It also might be interesting to experiment with different base32 alphabets, to differentiate even more between different coins.
-
+```
 prefix: bitcoincash:
 17VZNX1SN5NtKa8UQFxwQbFeFc3iqRYhem
 3EktnHQD7RiAE6uzMj2ZifT9YgRrkSgzQX
@@ -68,3 +68,4 @@ base58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
 Also:
 base32extendedhex:  "0123456789abcdefghijklmnopqrstuv"
 base58Flickr = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
+```
