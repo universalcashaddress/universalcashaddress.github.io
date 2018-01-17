@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!-- License: MIT https://github.com/JDonadio/address-translator/blob/ac4d953/package.json#L4 -->
+<html lang="en">
+    <head>
+        <title>universalcashaddress.github.io bchtestnet</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name=”description” content="A tool to convert between base58 and bech32 address formats."/>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <!--<base href="https://transaddrs.github.io/">-->
+        <!--RUN LOCALLY: <base href=".">-->
+        <base href=".">
+        <!--<style></style>-->
+        <link rel="stylesheet" href="./style/styles.bundle.css" />
+        <link rel="stylesheet" href="./style/dropdown.css" />
+        <link rel="stylesheet" href="./style/QR.css" />
+    </head>
+    <body>
+        <div class="header">
+          <div class="header-content">
+            <!--<img alt="/*Logo name*/" class="" src="./image1.svg">-->
+            <div class="header-center">
+              <h3 class="header-title">base58 bech32 binary translator</h3>
+                <div class="card">
+                  <div class="repository-link">
+                    <div class="dropdown">
+                      <button class="dropbtn">links</button>
+                      <div class="dropdown-content">
+                        <a href="https://github.com/cashaddress/cashaddress.github.io" target="blank">cashaddress.github.io</a>
+                        <a href="https://en.bitcoin.it/wiki/Technical_background_of_version_1_Bitcoin_addresses">wiki version_1_Bitcoin_addresses</a>
+                        <a href="https://gist.github.com/DesWurstes/bba4222c8b6253b940096fcede97e17a">DesWurstes gist</a>
+                        <a href="https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki">bip-0173.mediawiki</a>
+                        <a href="https://github.com/Bitcoin-ABC/bitcoin-abc/blob/master/src/cashaddrenc.cpp">cashaddrenc.cpp</a>
+                        <a href="https://github.com/Bitcoin-UAHF/spec/blob/master/cashaddr.md">cashaddr.md</a>
+                        <a href="https://github.com/Bitcoin-ABC/bitcoin-abc/issues/35">ABC issues/35</a>
+                        <a href="https://en.bitcoin.it/wiki/List_of_address_prefixes">List_of_address_prefixes</a>
+                        <a href="https://ripple.com/build/accounts/">ripple account basics</a>
+                        <a href="https://github.com/libbitcoin/libbitcoin/wiki/Altcoin-Version-Mappings">Altcoin-Version-Mappings</a>
+                        <a href="https://github.com/davidshimjs/qrcodejs">davidshimjs/qrcodejs</a>
+                        <a href="https://github.com/universalcashaddress/universalcashaddress.github.io">universalcashaddress.github.io</a>
+                        <!--<a href="#">blank</a>-->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--<img alt="/*Logo name*/" class="" src="./image2.svg">-->
+          </div>
+        <div class="container">
+            <div class="dropdown">
+                <button class="dropbtn">configuration</button>
+                <div class="dropdown-form">
+                    prefix<br>
+                    <div class="input-group">
+                        <div class="input-group-addon">prefix:</div>
+                        <input class="form-control ng-untouched ng-pristine" id="prefix" onclick="this.select()" name="prefix" type="text" value="bchtest:"/>
+                    </div><!-- bitcoincash: litecoin: -->
+                    <div class="input-group">
+                        <div class="input-group-addon">P2PKH:</div>
+                        <input class="form-control ng-untouched ng-pristine" id="P2PKH" onclick="this.select()" name="P2PKH" type="text" value="111"/>
+                        <div class="input-group-addon">(decimal)</div>
+                    </div><!-- 0 48 -->
+                    <div class="input-group">
+                        <div class="input-group-addon">P2SH:</div>
+                        <input class="form-control ng-untouched ng-pristine" id="P2SH" onclick="this.select()" name="P2SH" type="text" value="196"/>
+                        <div class="input-group-addon">(decimal)</div>
+                    </div><!-- 5 5 -->
+                    alphabets<br>
+                    <div class="input-group">
+                        <div class="input-group-addon">base32:</div>
+                        <input class="form-control ng-untouched ng-pristine" id="base32alphabet" onclick="this.select()" name="base32alphabet" type="text" value="qpzry9x8gf2tvdw0s3jn54khce6mua7l"/>
+                    </div><!-- qpzry9x8gf2tvdw0s3jn54khce6mua7l -->
+                    <div class="input-group">
+                        <div class="input-group-addon">base58:</div>
+                        <input class="form-control ng-untouched ng-pristine" id="base58alphabet" onclick="this.select()" name="base58alphabet" type="text" value="123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"/>
+                    </div><!-- 123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz -->
+                </div>
+            </div>
+          <form novalidate="" class="ng-valid ng-dirty ng-touched">
+            <div class="card">
+              <div class="qr-container">
+               <div class="qr-left" id="qrleft58">
+                <div class="card-block">
+                 <h6 class="card-title">base58</h6>
+                 <div class="row">
+                  <div class="form-group col">
+                    <div class="input-group">
+                      <div class="input-group-addon">base58:</div>
+                      <input class="form-control ng-valid ng-dirty ng-touched" id="base58address" onclick="this.select()" name="base58address" type="text"/>
+                    </div>
+                  </div>
+                 </div>
+                </div>
+               </div>
+               <div class="qr-right" id="qrright58" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="qrcode58" transform="translate(-75 0)"/>
+                </svg>
+               </div>
+              </div>
+            </div>
+            <div class="card">
+               <div class="qr-container">
+                <div class="qr-left" id="qrleft32">
+                  <div class="card-block">
+                    <h6 class="card-title">base32</h6>
+                    <div class="row">
+                      <div class="form-group col">
+                        <div class="input-group">
+                          <div class="input-group-addon">base32:</div>
+                          <input class="form-control ng-untouched ng-pristine" id="base32address" onclick="this.select()" name="base32address" type="text"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" id="b32correctionrow" style="display: none;">
+                    </div>
+                  </div>
+                 </div>
+                <div class="qr-right" id="qrright32" style="display: none;">
+                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                     <g id="qrcode32" transform="translate(-75 0)"/>
+                 </svg>
+                </div>
+               </div>
+            </div>
+            <div class="card">
+              <div class="qr-container">
+               <div class="qr-left" id="qrlefthex">
+                  <div class="card-block">
+                    <h6 class="card-title">hexadecimal</h6>
+                    <div class="row">
+                      <div class="form-group col">
+                        <div class="input-group">
+                          <div class="input-group-addon">hexadecimal:</div>
+                          <input class="form-control ng-untouched ng-pristine" id="hexadecimaladdress" onclick="this.select()" name="hexadecimaladdress" type="text" readonly/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="qr-right" id="qrrighthex" style="display: none;">
+                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                     <g id="qrcodehex" transform="translate(-75 0)"/>
+                 </svg>
+                </div>
+               </div>
+            </div>
+            <div class="card" style="display: none;">
+              <div class="card-block">
+                <h6 class="card-title">binary</h6>
+                <div class="row">
+                  <div class="form-group col">
+                    <div class="input-group">
+                      <div class="input-group-addon">binary:</div>
+                      <input class="form-control ng-untouched ng-pristine" id="binaryaddress" onclick="this.select()" name="binaryaddress" type="text" readonly/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+            Copyright Developers Jan 2018
+        </div>
+        <!--<script src="./js/mod-main.js"></script>-->
+        <!--<script src="./js/encodedecode.js"></script>-->
+        <script type="text/javascript" src="./js/mod-qrcode.js"></script>
+        <script src="./js/main.js"></script>
+        <script src="./js/encodedecode.js"></script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+.qr-container {
+    /*height: 100%;
+    width:100%;*/
+}
+
+.qr-left, .qr-right {
+    display: inline-block;
+    *display: inline;
+    float: left;
+    background-color:#ffffff;
+    /*width: 100%;
+     width: 75%;*/
+    border: 10px solid #ffffff;
+}
+
+.qr-left {
+    /*width: 100%;
+     width: 75%;*/
+    width: 95%;
+    /*margin: 5px;
+    padding: 5px;*/
+}
+
+.qr-right {
+    /*width: 100px;
+    width: 15%;*/
+    width: 150px;
+    /*margin: 5px;
+    padding: 5px;*/
+}
+
+/*.floating-box {
+    float: left;
+    width: 150px;
+    height: 75px;
+    margin: 10px;
+    border: 3px solid #73AD21;
+}*/
